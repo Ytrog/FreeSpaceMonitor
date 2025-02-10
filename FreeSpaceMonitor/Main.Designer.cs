@@ -30,12 +30,19 @@
         {
             components = new System.ComponentModel.Container();
             driveTimer = new System.Windows.Forms.Timer(components);
+            notifySize = new NotifyIcon(components);
             SuspendLayout();
             // 
             // driveTimer
             // 
             driveTimer.Interval = 2000;
             driveTimer.Tick += driveTimer_Tick;
+            // 
+            // notifySize
+            // 
+            notifySize.BalloonTipIcon = ToolTipIcon.Info;
+            notifySize.Text = "Disk Space";
+            notifySize.Visible = true;
             // 
             // Main
             // 
@@ -50,5 +57,6 @@
         #endregion
 
         private System.Windows.Forms.Timer driveTimer;
+        private NotifyIcon notifySize;
     }
 }
