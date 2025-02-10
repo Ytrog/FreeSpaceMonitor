@@ -1,6 +1,6 @@
 ﻿namespace FreeSpaceMonitor
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -35,13 +35,14 @@
             // driveTimer
             // 
             driveTimer.Interval = 2000;
+            driveTimer.Tick += driveTimer_Tick;
             // 
-            // Form1
+            // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "Form1";
+            Name = "Main";
             Text = "Free-space monitor";
             ResumeLayout(false);
         }
