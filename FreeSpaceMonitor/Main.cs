@@ -17,7 +17,7 @@ namespace FreeSpaceMonitor
 
         private void driveTimer_Tick(object sender, EventArgs e)
         {
-            notifySize.Text = $"Disk Space {DiskSpaceManager.FreeSpace}";
+            notifySize.Text = $"Disk Space {DiskSpaceManager.FreeSpace.HumanReadable()}";
         }
     }
 }
