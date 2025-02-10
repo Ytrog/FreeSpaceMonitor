@@ -19,12 +19,8 @@ namespace FreeSpaceMonitor
             DriveInfo = new(drivename);
         }
 
-        public double FreeSpace 
-        {
-            get 
-            {
-                return DriveInfo.AvailableFreeSpace; 
-            } 
-        }
+        public double FreeSpace => DriveInfo.AvailableFreeSpace;
+
+        public double TotalSize => DriveInfo.TotalSize;
     }
 }
