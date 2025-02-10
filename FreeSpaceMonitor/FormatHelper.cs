@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FreeSpaceMonitor
 {
-    public static class StringHelper
+    public static class FormatHelper
     {
         public static string HumanReadable(this long byteCount)
         {
