@@ -70,6 +70,7 @@
             ShowIcon = false;
             ShowInTaskbar = false;
             Text = "Free-space monitor";
+            WindowState = FormWindowState.Minimized;
             contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
