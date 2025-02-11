@@ -11,11 +11,17 @@ namespace FreeSpaceMonitor
             if (DiskSpaceManager.DriveInfo.IsReady)
             {
                 notifySize.Icon = SystemIcons.GetStockIcon(StockIconId.DriveFixed);
+                SetSize();
                 driveTimer.Enabled = true;
             }
         }
 
         private void driveTimer_Tick(object sender, EventArgs e)
+        {
+            SetSize();
+        }
+
+        private void SetSize()
         {
             notifySize.Text = $"Disk Space {DiskSpaceManager.FreeSpace.HumanReadable()}";
         }
