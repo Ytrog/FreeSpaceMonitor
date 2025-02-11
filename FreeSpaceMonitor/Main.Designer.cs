@@ -31,6 +31,9 @@
             components = new System.ComponentModel.Container();
             driveTimer = new System.Windows.Forms.Timer(components);
             notifySize = new NotifyIcon(components);
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            btnClose = new ToolStripMenuItem();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // driveTimer
@@ -41,8 +44,22 @@
             // notifySize
             // 
             notifySize.BalloonTipIcon = ToolTipIcon.Info;
+            notifySize.ContextMenuStrip = contextMenuStrip1;
             notifySize.Text = "Disk Space";
             notifySize.Visible = true;
+            // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { btnClose });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(104, 26);
+            // 
+            // btnClose
+            // 
+            btnClose.Name = "btnClose";
+            btnClose.Size = new Size(103, 22);
+            btnClose.Text = "Close";
+            btnClose.Click += btnClose_Click;
             // 
             // Main
             // 
@@ -50,7 +67,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Name = "Main";
+            ShowIcon = false;
+            ShowInTaskbar = false;
             Text = "Free-space monitor";
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -58,5 +78,7 @@
 
         private System.Windows.Forms.Timer driveTimer;
         private NotifyIcon notifySize;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem btnClose;
     }
 }

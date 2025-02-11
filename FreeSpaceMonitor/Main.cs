@@ -25,5 +25,10 @@ namespace FreeSpaceMonitor
         {
             notifySize.Text = $"Disk Space {DiskSpaceManager.FreeSpace.HumanReadable()}";
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
