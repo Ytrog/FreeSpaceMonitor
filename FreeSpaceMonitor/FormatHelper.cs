@@ -8,6 +8,10 @@ namespace FreeSpaceMonitor
 {
     public static class FormatHelper
     {
+        const double kbFactor = 1 << 10; 
+        const double mbFactor = 1 << 20;
+        const double gbFactor = 1 << 30;
+
         public static string HumanReadable(this long byteCount)
         {
             double magnitude = Math.Log2(byteCount.Abs());
@@ -26,19 +30,19 @@ namespace FreeSpaceMonitor
             return (ulong)Math.Abs(value);
         }
 
-        public static long ToKB(this long value)
+        public static double ToKB(this long bytes)
         {
-            return value / 1024; 
+            return Math.Round(bytes / kbFactor, 2); 
         }
 
-        public static long ToMB(this long value)
+        public static double ToMB(this long bytes)
         {
-            return value >> 20;
+            return Math.Round(bytes / mbFactor, 2);
         }
 
-        public static long ToGB(this long value)
+        public static double ToGB(this long bytes)
         {
-            return value >> 30; // TODO round to 1 decimal
+            return Math.Round(bytes / gbFactor, 2);
         }
     }
 }
