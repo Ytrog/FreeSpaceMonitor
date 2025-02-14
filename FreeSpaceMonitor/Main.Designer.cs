@@ -33,6 +33,7 @@
             notifySize = new NotifyIcon(components);
             contextMenuStrip1 = new ContextMenuStrip(components);
             btnClose = new ToolStripMenuItem();
+            monitorToolStripMenuItem = new ToolStripMenuItem();
             contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -50,16 +51,24 @@
             // 
             // contextMenuStrip1
             // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { btnClose });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { btnClose, monitorToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(104, 26);
+            contextMenuStrip1.Size = new Size(207, 70);
             // 
             // btnClose
             // 
             btnClose.Name = "btnClose";
-            btnClose.Size = new Size(103, 22);
+            btnClose.Size = new Size(206, 22);
             btnClose.Text = "Close";
             btnClose.Click += btnClose_Click;
+            // 
+            // monitorToolStripMenuItem
+            // 
+            monitorToolStripMenuItem.CheckOnClick = true;
+            monitorToolStripMenuItem.Name = "monitorToolStripMenuItem";
+            monitorToolStripMenuItem.Size = new Size(206, 22);
+            monitorToolStripMenuItem.Text = "Toggle active monitoring";
+            monitorToolStripMenuItem.ToolTipText = "Monitor more actively through popups";
             // 
             // Main
             // 
@@ -81,5 +90,6 @@
         private NotifyIcon notifySize;
         private ContextMenuStrip contextMenuStrip1;
         private ToolStripMenuItem btnClose;
+        private ToolStripMenuItem monitorToolStripMenuItem;
     }
 }
