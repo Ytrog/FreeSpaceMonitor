@@ -27,7 +27,16 @@ namespace FreeSpaceMonitor
 
         private void PopupSize()
         {
-            notifySize.ShowBalloonTip(1000, "Free space", FormatDiskSpace(), DiskSpaceManager.FreeSpace > 1 << 30 ?  ToolTipIcon.Info : ToolTipIcon.Warning);
+            notifySize.ShowBalloonTip(1000, "Free space", FormatDiskSpace(), IsFreeSpaceSufficient() ? ToolTipIcon.Info : ToolTipIcon.Warning);
+        }
+
+        /// <summary>
+        /// Check if free space is sufficient
+        /// </summary>
+        /// <returns></returns>
+        private bool IsFreeSpaceSufficient()
+        {
+            return DiskSpaceManager.FreeSpace > 1 << 30;
         }
 
         private void SetSize()
