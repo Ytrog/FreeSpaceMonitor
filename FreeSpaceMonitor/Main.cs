@@ -42,6 +42,14 @@ namespace FreeSpaceMonitor
         private void SetSize()
         {
             notifySize.Text = FormatDiskSpace();
+            if (!IsFreeSpaceSufficient())
+            {
+                notifySize.Icon = SystemIcons.Exclamation;
+            }
+            else
+            {
+                notifySize.Icon = SystemIcons.GetStockIcon(StockIconId.DriveFixed);
+            }
         }
 
         private string FormatDiskSpace()
