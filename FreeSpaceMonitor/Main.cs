@@ -27,7 +27,19 @@ namespace FreeSpaceMonitor
 
         private void PopupSize()
         {
-            notifySize.ShowBalloonTip(1000, "Free space", FormatDiskSpace(), IsFreeSpaceSufficient() ? ToolTipIcon.Info : ToolTipIcon.Warning); // TODO change icon
+            ToolTipIcon icon = ToolTipIcon.Info;
+            if (!IsFreeSpaceSufficient())
+            {
+                if (IsDiskSpaceLow())
+                {
+                    icon = ToolTipIcon.Error;
+                }
+                else
+                {
+                    icon = ToolTipIcon.Warning;
+                }
+            }
+            notifySize.ShowBalloonTip(1000, "Free space", FormatDiskSpace(), icon);
         }
 
         /// <summary>
