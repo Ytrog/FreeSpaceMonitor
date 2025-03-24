@@ -27,7 +27,7 @@ namespace FreeSpaceMonitor
 
         private void PopupSize()
         {
-            notifySize.ShowBalloonTip(1000, "Free space", FormatDiskSpace(), IsFreeSpaceSufficient() ? ToolTipIcon.Info : ToolTipIcon.Warning);
+            notifySize.ShowBalloonTip(1000, "Free space", FormatDiskSpace(), IsFreeSpaceSufficient() ? ToolTipIcon.Info : ToolTipIcon.Warning); // TODO change icon
         }
 
         /// <summary>
@@ -39,12 +39,24 @@ namespace FreeSpaceMonitor
             return DiskSpaceManager.FreeSpace > 1 << 30;
         }
 
+        private bool IsDiskSpaceLow()
+        {
+            return DiskSpaceManager.FreeSpace < 1 << 28;
+        }   
+
         private void SetSize()
         {
             notifySize.Text = FormatDiskSpace();
             if (!IsFreeSpaceSufficient())
             {
-                notifySize.Icon = SystemIcons.Exclamation;
+                if (IsDiskSpaceLow())
+                {
+                    notifySize.Icon = SystemIcons.Error;
+                }
+                else
+                {
+                    notifySize.Icon = SystemIcons.Exclamation; 
+                }
             }
             else
             {
